@@ -23,52 +23,53 @@ function Header() {
     ];
 
     return (
-        <div className="w-full max-w-[2000px] mx-auto px-5 py-4 flex items-center justify-between">
-            {/* Left Side: Logo + Menu */}
-            <div className="flex items-center gap-8">
-                {/* Logo */}
-                <img src={logo} className="w-[80px] md:w-[115px] object-cover" alt="Logo" />
+            <div className="w-full max-w-[2000px] mx-auto px-5 py-4 flex items-center justify-between">
 
-                {/* Desktop Menu */}
-                <div className="hidden md:flex gap-8">
-                    {menu.map((item) => (
-                        <HeaderItem key={item.name} name={item.name} Icon={item.Icon} />
-                    ))}
-                </div>
+      {/* LEFT: Logo + Menu */}
+      <div className="flex items-center gap-8">
+        <img src={logo} className="w-[80px] md:w-[115px] object-cover flex-shrink-0" alt="Logo" />
 
-                {/* Mobile Menu Icons */}
-                <div className="flex md:hidden gap-5 items-center">
-                    {menu.slice(0, 3).map((item) => (
-                        <HeaderItem key={item.name} name={''} Icon={item.Icon} />
-                    ))}
+        {/* Desktop Menu */}
+        <div className="hidden md:flex items-center gap-8">
+          {menu.map((item) => (
+            <HeaderItem key={item.name} name={item.name} Icon={item.Icon} />
+          ))}
+        </div>
 
-                    {/* More Button */}
-                    <div className="relative">
-                        <div onClick={handleToggle}>
-                            <HeaderItem name={''} Icon={HiDotsVertical} />
-                        </div>
+        {/* Mobile Menu */}
+        <div className="flex md:hidden gap-5 items-center">
+          {menu.slice(0, 3).map((item) => (
+            <HeaderItem key={item.name} name={''} Icon={item.Icon} />
+          ))}
 
-                        {/* Dropdown Menu */}
-                        {toggle && (
-                            <div className="absolute right-0 mt-3 bg-[#121212] border border-gray-700 rounded-lg shadow-lg p-4 z-50 animate-slide-down">
-                                {menu.slice(3).map((item) => (
-                                    <div key={item.name} onClick={() => setToggle(false)}>
-                                        <HeaderItem name={item.name} Icon={item.Icon} />
-                                    </div>
-                                ))}
-                            </div>
-                        )}
-                    </div>
-                </div>
+          {/* More Button */}
+          <div className="relative">
+            <div onClick={handleToggle}>
+              <HeaderItem name={''} Icon={HiDotsVertical} />
             </div>
 
-            {/* Right Side: Avatar */}
-            <img
-                src="https://ps.w.org/user-avatar-reloaded/assets/icon-256x256.png?rev=2540745"
-                className="w-[40px] rounded-full cursor-pointer hover:scale-105 transition"
-                alt="User Avatar"
-            />
+            {toggle && (
+              <div className="absolute right-0 mt-3 bg-[#121212] border border-gray-700 rounded-lg shadow-lg p-4 z-50 animate-slide-down">
+                {menu.slice(3).map((item) => (
+                  <div key={item.name} onClick={() => setToggle(false)}>
+                    <HeaderItem name={item.name} Icon={item.Icon} />
+                  </div>
+                ))}
+              </div>
+            )}
+          </div>
         </div>
+      </div>
+
+      {/* RIGHT: Avatar */}
+      <div className="flex-shrink-0">
+        <img
+          src="https://ps.w.org/user-avatar-reloaded/assets/icon-256x256.png?rev=2540745"
+          className="w-[40px] h-[40px] rounded-full cursor-pointer hover:scale-105 transition"
+          alt="User Avatar"
+        />
+      </div>
+    </div>
     );
 }
 
