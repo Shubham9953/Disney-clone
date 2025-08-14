@@ -1,5 +1,5 @@
 import React, { useEffect, useRef, useState } from 'react'
-import GlobalAPI from '../../Services/GlobalAPI';
+import GlobalAPI from '../../Services/GlobalApi';
 import { HiChevronLeft, HiChevronRight } from 'react-icons/hi2';
 
 const IMAGE_BASE_URL="https://image.tmdb.org/t/p/original";
